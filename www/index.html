@@ -83,6 +83,17 @@
       showResults(results);
     })
   }*/
+  function searchPowerLT(){
+    let power = parseInt($("#power").val());
+    let TestDataClass = ncmb.DataStore(db);
+    TestDataClass
+    .lessThan("power",power)
+    .fetchAll()
+    .then(function(results){
+      showResults(results);
+    })
+  }
+
   /*function searchLevelGT(){
     let level = parseInt($("#level").val());
     let TestDataClass = ncmb.DataStore(db);
@@ -115,7 +126,7 @@
     <button class="btn" onclick="fetchAll()">Fetch All</button>
     <button class="btn" onclick="searchName()">Name</button>
     <br>
-    <button class="btn" onclick="searchLevelLT()">Level &lt;</button>
+    <button class="btn" onclick="searchPowerLT()">power &lt;</button>
     <button class="btn" onclick="searchPower()">power</button>
     <button class="btn" onclick="searchLevelGT()">Level &gt;</button>
 
